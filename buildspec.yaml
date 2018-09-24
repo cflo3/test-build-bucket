@@ -11,6 +11,5 @@ env:
 phases:
   pre_build:
     commands:
-      - . ./aws-creds.sh
       - aws s3 ls --region us-west-2 s3://lo3energy-build/
       - aws s3 cp --region us-west-2 s3://lo3energy-build/upvoteparrot.gif .
