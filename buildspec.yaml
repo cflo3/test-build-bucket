@@ -1,0 +1,14 @@
+# AWS CodeBuild buildspec version; not app version
+version: 0.2
+
+env:
+  variables:
+    JENKINS_BUILDNUM: ""
+  parameter-store:
+    MAPP_RELEASE_KEYSTORE_PASSWORD: jenkins-apk-keystore-password
+    MAPP_RELEASE_KEY_ALIAS: jenkins-apk-keystore-alias
+    MAPP_RELEASE_KEY_PASSWORD: jenkins-apk-key-password
+phases:
+  pre_build:
+    commands:
+      - ./pull-keystore.sh
