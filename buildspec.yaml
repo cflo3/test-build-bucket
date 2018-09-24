@@ -22,4 +22,7 @@ phases:
       - export AWS_SECRET_ACCESS_KEY=`jq -r '.SecretAccessKey' aws_credentials.json`
       - export AWS_SESSION_TOKEN=`jq -r '.Token' aws_credentials.json`
       - echo $AWS_ACCESS_KEY_ID
-      - ./pull-keystore.sh
+      - echo $AWS_SECRET_ACCESS_KEY
+      - echo $AWS_SESSION_TOKEN
+      - aws s3 ls --region us-west-2 s3://lo3energy-build/
+      - aws s3 cp --region us-west-2 s3://lo3energy-build/release.keystore .
