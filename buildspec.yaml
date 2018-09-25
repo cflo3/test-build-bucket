@@ -11,5 +11,4 @@ env:
 phases:
   pre_build:
     commands:
-      - aws s3 ls --region us-west-2 s3://lo3energy-build/
-      - aws s3 cp --region us-west-2 s3://lo3energy-build/upvoteparrot.gif .
+      - aws s3 cp --region us-west-2 ./test.txt s3://lo3energy-app-dist/dev/test.text --acl public-read 
